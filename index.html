@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberVerse від Newasoft | Офіційний сайт</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Urbanist:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: #0d0d11;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        /* Навігація */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(13, 13, 17, 0.6);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #8e929b;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .discord-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .nav-links .btn-nav-reg {
+            background: #ffffff;
+            color: #0d0d11;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .nav-links .btn-nav-reg:hover {
+            background: #e2e4e9;
+            color: #0d0d11;
+            transform: translateY(-1px);
+        }
+
+        /* Головна секція */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, rgba(255, 78, 80, 0.12) 0%, rgba(13, 13, 17, 1) 70%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #8e929b;
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #ffffff;
+            color: #0d0d11;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: none;
+        }
+
+        /* Загальні стилі секцій */
+        section {
+            padding: 120px 10%;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        /* Блок розробника */
+        .developer-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dev-photo {
+            width: 100%;
+            height: 450px;
+            background: #1a1a24;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dev-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dev-text h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .dev-nickname {
+            color: #ff4e50;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .dev-text p {
+            color: #8e929b;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* Тарифи / Підписка */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: rgba(20, 20, 28, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 24px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .price-card.featured {
+            border-color: #ff4e50;
+            background: rgba(255, 78, 80, 0.03);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4e50;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .price-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .cost {
+            font-size: 3rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .cost span {
+            font-size: 1.1rem;
+            color: #8e929b;
+            font-weight: 400;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+            color: #8e929b;
+        }
+
+        .price-card ul li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .price-card ul li::before {
+            content: "✓";
+            color: #ff4e50;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Інструкція */
+        .instruction-section {
+            background: #09090c;
+            overflow: hidden;
+        }
+
+        .ins-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+        }
+
+        .ins-img-holder {
+            width: 100%;
+            background: #14141c;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a4d57;
+            font-weight: 600;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ins-badge {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: #ff4e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .ins-title {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 25px;
+        }
+
+        .ins-desc {
+            color: #8e929b;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .style-one {
+            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 50px;
+            border-radius: 32px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .style-one .ins-img-holder { height: 350px; }
+
+        .style-two {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .style-two .ins-img-holder { height: 420px; box-shadow: -20px 20px 0px rgba(255, 78, 80, 0.05); }
+
+        .style-three {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .style-three .ins-img-holder { height: 420px; box-shadow: 20px 20px 0px rgba(249, 212, 35, 0.05); }
+
+        .style-four {
+            border-left: 5px solid #ff4e50;
+            background: rgba(255, 78, 80, 0.02);
+            padding: 50px;
+            border-radius: 0 24px 24px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .style-four .ins-img-holder { height: 320px; border-radius: 12px; }
+
+        .style-five {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background: radial-gradient(circle at top, rgba(255, 255, 255, 0.03) 0%, rgba(0,0,0,0) 80%);
+            padding: 40px;
+        }
+        .style-five .ins-img-holder { height: 450px; margin: 35px 0; border: 1px dashed rgba(255,255,255,0.2); }
+
+        /* БЛОК ПІДТРИМКИ (DISCORD CONTACT) */
+        .support-container {
+            max-width: 500px;
+            margin: 40px auto 0 auto;
+            background: #111119;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .support-container:hover {
+            background: #151522;
+            border-color: #5865F2;
+        }
+
+        .support-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1a1a24;
+            border: 2px solid #5865F2;
+            overflow: hidden;
+        }
+
+        .support-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .support-info {
+            text-align: left;
+        }
+
+        .support-label {
+            font-size: 0.75rem;
+            color: #5865F2;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .support-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .support-tag {
+            font-size: 0.85rem;
+            color: #8e929b;
+        }
+
+        /* Спливаюче сповіщення про копіювання */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #5865F2;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            display: none;
+            animation: toastFade 0.3s ease;
+        }
+
+        @keyframes toastFade {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Галерея */
+        .screenshot-placeholder {
+            width: 100%;
+            height: 380px;
+            background: #161622;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a4d57;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .gallery-grid .screenshot-placeholder:nth-child(2) {
+            grid-row: span 2;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* ПЛАВАЮЧЕ ВІКНО РЕЄСТРАЦІЇ */
+        .floating-window {
+            position: fixed;
+            top: 20%;
+            left: 35%;
+            width: 380px;
+            background: rgba(19, 19, 26, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: windowSpawn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes windowSpawn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .window-header {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+            user-select: none;
+        }
+
+        .window-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .window-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #ff4e50;
+            border-radius: 50%;
+        }
+
+        .window-close {
+            background: none;
+            border: none;
+            color: #8e929b;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .window-close:hover {
+            color: #ff4e50;
+        }
+
+        .window-body {
+            padding: 25px;
+        }
+
+        .window-body h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .window-body p {
+            color: #8e929b;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: #cbd5e1;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(26, 26, 36, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Urbanist', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff4e50;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
+            color: #0d0d11;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            padding: 60px 10% 40px 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #0a0a0e;
+        }
+
+        @media (max-width: 900px) {
+            .developer-container, .gallery-grid, .style-one, .style-two, .style-three, .style-four {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .style-three .ins-content { order: 2; }
+            .gallery-grid .screenshot-placeholder:nth-child(2) { grid-row: auto; height: 380px; }
+            .ins-img-holder { height: 280px !important; box-shadow: none !important; }
+            .hero h1 { font-size: 3rem; }
+            section { padding: 80px 5%; }
+            .nav-links { display: none; }
+            .floating-window { width: 90%; left: 5% !important; top: 15% !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Newasoft</div>
+        <div class="nav-links">
+            <a href="#creator">Творець</a>
+            <a href="#access">Доступ</a>
+            <a href="#download">Встановлення</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#" id="navSupportTrigger">
+                <svg class="discord-icon" viewBox="0 0 127.14 96.36">
+                    <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.45-5c.87-.64,1.71-1.32,2.51-2a75.52,75.52,0,0,0,72.76,0c.8.71,1.64,1.39,2.51,2a68.43,68.43,0,0,1-10.45,5,77.7,77.7,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31-18.83C129.81,50.54,123.83,27.78,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.88,46,53.88,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.12,46,96.12,53,91,65.69,84.69,65.69Z"/>
+                </svg>
+                Підтримка
+            </a>
+            <a href="#" class="btn-nav-reg" id="openWindowBtn">Реєстрація</a>
+        </div>
+    </nav>
+
+    <section class="hero" data-aos="fade-up" data-aos-duration="1500">
+        <h1>Дійди до кінця <br>крізь темряву</h1>
+        <p>Проєкт життя від розробника NewaHostius. Оберіть свій тип доступу нижче, щоб завантажити лаунчер гри.</p>
+        <div>
+            <a href="#access" class="btn">Оформити доступ</a>
+            <a href="#" class="btn btn-secondary" id="heroWindowBtn">Створити Акаунт</a>
+        </div>
+    </section>
+
+    <section id="creator">
+        <div class="developer-container">
+            <div class="dev-photo" data-aos="fade-up" data-aos-duration="1200">
+                <img src="Image/image_d6a365.png" alt="Артем Васильків Назарович">
+            </div>
+            
+            <div class="dev-text" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <span class="dev-nickname">ГОЛОВНИЙ РОЗРОБНИК</span>
+                <h3>Артем Васильків Назарович</h3>
+                <p style="color: #cbd5e1; font-style: italic; margin-bottom: 20px;">Псевдонім: NewaHostius</p>
+                
+                <p>Артем народився серед квітучої та вільної Гуцульщини. Тінисті карпатські ліси та спокій гір сформували його глибоке бачення світу. Проте доля розпорядилася інакше: через сімейні обставини ще в юності він був змушений переїхати на інший кінець країни — у суворий промисловий Донбас.</p>
+                
+                <p>Різкий контраст териконів, диму фабрик та важкої праці залишив глибокий след у душі майбутнього творця. Саме там він зіштовхнувся з сумною долею: втратою близьких, самотністю та жорстокістю залізобетонного світу, де кожен день був боротьбою за виживання.</p>
+                
+                <p>Не зламавшись під тиском обставин, Артем закрився в кімнаті з єдиним старим комп'ютером. Весь свій біографічний біль, переживання та важкі спогади про пережиті випробування він вклав у рядки коду. Так народилася студія Newasoft та гра, що здатна зазирнути у найатмосферніші куточки людської свідомості.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="access">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Крок 0. Оберіть варіант доступу</h2>
+        
+        <div class="pricing-grid">
+            <div class="price-card" data-aos="fade-up" data-aos-duration="1200">
+                <h3>Базовий доступ</h3>
+                <div class="cost">Безкоштовно</div>
+                <ul>
+                    <li>Доступ до повної версії гри</li>
+                    <li>Стандартні оновлення безпеки</li>
+                    <li>Гра на публічних серверах</li>
+                </ul>
+                <button class="btn btn-secondary card-reg-trigger" style="width: 100%; margin: 0; text-align: center;">Обрати та завантажити</button>
+            </div>
+
+            <div class="price-card featured" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <div class="badge">Популярно</div>
+                <h3>Newa-Підписка</h3>
+                <div class="cost">149 <span>грн / міс</span></div>
+                <ul>
+                    <li>Доступ до закритих тестів оновлень</li>
+                    <li>Ексклюзивні скіни від NewaHostius</li>
+                    <li>Пріоритетна техпідтримка 24/7</li>
+                    <li>Значок спонсора в профілі</li>
+                </ul>
+                <button class="btn card-reg-trigger" style="width: 100%; text-align: center;">Оформити і перейти</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="instruction-section">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Інструкція із встановлення</h2>
+        
+        <div class="ins-container">
+            <div class="style-one" data-aos="fade-in" data-aos-duration="1400">
+                <div class="ins-content">
+                    <span class="ins-badge">Етап перший</span>
+                    <h4 class="ins-title">01. Отримання клієнта</h4>
+                    <p class="ins-desc">Одразу після вибору підписки ви отримаєте доступ до прямого завантаження інсталятора сайту. Натисніть кнопку завантаження та дочекайтеся повного збереження файлу на диск вашого персонального комп'ютера.</p>
+                </div>
+                <div class="ins-img-holder">[ Фото 1: Вікно браузера з файлом ]</div>
+            </div>
+
+            <div class="style-two">
+                <div class="ins-content" data-aos="fade-right" data-aos-duration="1200">
+                    <span class="ins-badge">Етап другий</span>
+                    <h4 class="ins-title">02. Розархівування</h4>
+                    <p class="ins-desc">Запустіть завантажений інсталятор від імені адміністратора й виберіть шлях встановлення на швидкий SSD-диск для уникнення затримок під час гри.</p>
+                </div>
+                <div class="ins-img-holder" data-aos="fade-left" data-aos-duration="1200">[ Фото 2: Процес розпакування файлів ]</div>
+            </div>
+
+            <div class="style-three">
+                <div class="ins-img-holder" data-aos="fade-right" data-aos-duration="1200">[ Фото 3: Налаштування конфігурації ]</div>
+                <div class="ins-content" data-aos="fade-left" data-aos-duration="1200">
+                    <span class="ins-badge">Етап третій</span>
+                    <h4 class="ins-title">03. Налаштування параметрів</h4>
+                    <p class="ins-desc">Відкрийте файл конфігурації у папці з грою, щоб виставити оптимальні параметри графіки під вашу відеокарту ще до першого офіційного запуску.</p>
+                </div>
+            </div>
+
+            <div class="style-four" data-aos="fade-up" data-aos-duration="1200">
+                <div class="ins-content">
+                    <span class="ins-badge">Етап четвертий</span>
+                    <h4 class="ins-title">04. Авторизація токена</h4>
+                    <p class="ins-desc">Запустіть клієнт гри та введіть унікальний токен доступу, який ви згенерували в особистому кабінеті під час реєстрації акаунту.</p>
+                </div>
+                <div class="ins-img-holder">[ Фото 4: Головне меню авторизації ]</div>
+            </div>
+
+            <div class="style-five" data-aos="fade-up" data-aos-duration="1200">
+                <span class="ins-badge">Фінал</span>
+                <h4 class="ins-title" style="font-size: 2.5rem;">05. Початок геймплею</h4>
+                <p class="ins-desc">Натискайте заповітну кнопку «ГРАТИ» у лаунчері та вирушайте в захопливу й таємничу дорогу всесвіту CyberVerse.</p>
+                <div class="ins-img-holder">[ Фото 5: Яскрава кнопка «ГРАТИ» ]</div>
+                <button class="btn btn-download-trigger" style="padding: 20px 60px; font-size: 1.2rem;">Завантажити Клієнт (.exe)</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Скріншоти розробки</h2>
+        <div class="gallery-grid">
+            <div class="screenshot-placeholder" data-aos="fade-up" data-aos-duration="1200">[ Візуальний геймплей у темних тонах ]</div>
+            <div class="screenshot-placeholder" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="150">[ Деталізована ігрова локація ]</div>
+        </div>
+    </section>
+
+    <div class="floating-window" id="floatingRegWindow">
+        <div class="window-header" id="windowHeader">
+            <div class="window-title">Реєстрація користувача</div>
+            <button class="window-close" id="closeWindowBtn">&times;</button>
+        </div>
+        <div class="window-body">
+            <h3>Створити акаунт</h3>
+            <p>Заповніть форму для створення єдиного профілю CyberVerse.</p>
+            
+            <form id="regForm">
+                <div class="form-group">
+                    <label for="username">Нікнейм у грі</label>
+                    <input type="text" id="username" placeholder="Введіть ваш нікнейм" required>
+                </div>
+                <div class="form-group">
+                    <label for="userphone">Номер телефону</label>
+                    <input type="tel" id="userphone" placeholder="+380XXXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="useremail">Електронна пошта</label>
+                    <input type="email" id="useremail" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="userpassword">Пароль</label>
+                    <input type="password" id="userpassword" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">Зареєструватися</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast-notification" id="toastNotification">Нікнейм Discord скопійовано!</div>
+
+    <footer id="support">
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <h3 style="font-family: 'Space Grotesk', sans-serif; color: #fff; margin-bottom: 10px;">Служба підтримки</h3>
+            <p style="color: #8e929b; font-size: 0.95rem; margin-bottom: 20px;">Натисніть на картку, щоб автоматично скопіювати Discord нікнейм розробника:</p>
+            
+            <div class="support-container" id="discordCardTrigger">
+                <div class="support-avatar">
+                    <img src="Image/image_d6a365.png" alt="Avatar">
+                </div>
+                <div class="support-info">
+                    <div class="support-label">Discord техпідтримка</div>
+                    <div class="support-name">Kira Yoshikage</div>
+                    <div class="support-tag">kira_yoshikage • "Kame-Yu"</div>
+                </div>
+            </div>
+        </div>
+        
+        <p style="margin-top: 50px; color: #4a4d57; font-size: 0.9rem;">&copy; 2026 Newasoft. Усі права захищено. Творець: NewaHostius (Артем Васильків).</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: false, mirror: true, offset: 140 });
+
+        const win = document.getElementById('floatingRegWindow');
+        const header = document.getElementById('windowHeader');
+        const openBtn1 = document.getElementById('openWindowBtn');
+        const openBtn2 = document.getElementById('heroWindowBtn');
+        const closeBtn = document.getElementById('closeWindowBtn');
+        const regForm = document.getElementById('regForm');
+        const toast = document.getElementById('toastNotification');
+
+        // Відкриття/Закриття реєстрації
+        const showWin = (e) => { if(e) e.preventDefault(); win.style.display = 'flex'; }
+        const hideWin = () => { win.style.display = 'none'; }
+
+        openBtn1.addEventListener('click', showWin);
+        openBtn2.addEventListener('click', showWin);
+        closeBtn.addEventListener('click', hideWin);
+
+        document.querySelectorAll('.card-reg-trigger, .btn-download-trigger').forEach(button => {
+            button.addEventListener('click', (e) => { e.preventDefault(); showWin(); });
+        });
+
+        // --- ЛОГІКА КОПІЮВАННЯ ДІСКОРД НІКНЕЙМУ ---
+        const copyDiscordNickname = (e) => {
+            if(e) e.preventDefault();
+            const nickname = "kira_yoshikage";
+            
+            navigator.clipboard.writeText(nickname).then(() => {
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2500);
+            }).catch(err => {
+                console.error('Не вдалося скопіювати: ', err);
+            });
+        };
+
+        document.getElementById('discordCardTrigger').addEventListener('click', copyDiscordNickname);
+        document.getElementById('navSupportTrigger').addEventListener('click', copyDiscordNickname);
+
+        // --- ПЕРЕТЯГУВАННЯ ВІКНА ---
+        let isDragging = false;
+        let currentX, currentY, initialX, initialY;
+        let xOffset = 0, yOffset = 0;
+
+        header.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        function dragStart(e) {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+            if (e.target === header || header.contains(e.target)) { isDragging = true; }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+                win.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            }
+        }
+
+        function dragEnd() { isDragging = false; }
+
+        // --- ЗБЕРЕЖЕННЯ ДАНИХ СЕСІЇ ---
+        regForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const registrationData = {
+                nickname: document.getElementById('username').value,
+                phone: document.getElementById('userphone').value,
+                email: document.getElementById('useremail').value,
+                timestamp: new Date().toLocaleString()
+            };
+            localStorage.setItem('cyberverse_user_session', JSON.stringify(registrationData));
+            alert("Успішно! Обліковий запис створено. Ви можете завантажувати ігровий клієнт.");
+            hideWin();
+            regForm.reset();
+        });
+    </script>
+</body>
+</html>
